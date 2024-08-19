@@ -2,7 +2,6 @@
   "name": "namaste-dev-react",
   "version": "1.0.0",
   "description": "Learnings from Namaste React and personal learnings",
-  "main": "app.js",
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",

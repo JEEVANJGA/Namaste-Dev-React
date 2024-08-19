@@ -2,9 +2,10 @@
   "name": "namaste-dev-react",
   "version": "1.0.0",
   "description": "Learnings from Namaste React and personal learnings",
-  "main": "app.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,8 @@
   },
   "homepage": "https://github.com/JEEVANJGA/Namaste-Dev-React#readme",
   "devDependencies": {
-    "parcel": "^2.12.0"
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
   },
   "dependencies": {
     "react": "^18.3.1",

@@ -26,12 +26,12 @@ const parent = React.createElement(
             [
                 React.createElement(
                     "h1",
-                    null,
+                    {},
                     "I'm  H1 tag"
                 ),
                 React.createElement(
                     "h2",
-                    null,
+                    {},
                     "I'm  H2 tag"
                 )
             ]
@@ -44,12 +44,12 @@ const parent = React.createElement(
             [
                 React.createElement(
                     "h1",
-                    null,
+                    {},
                     "I'm  H1 tag"
                 ),
                 React.createElement(
                     "h2",
-                    null,
+                    {},
                     "I'm  H2 tag"
                 )
             ]

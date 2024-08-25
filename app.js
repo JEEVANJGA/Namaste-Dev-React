@@ -4,20 +4,24 @@ import { createRoot } from 'react-dom/client';
 /******* */
 /** Chapter-3 */
 
-const heading = React.createElement(
-    "h1", // tag
-    {
-        id: 'heading',
-        xyz: 'abc'
-    }, // props
-    "Hello World from React!" // children
-);
+//  React.createElement ==> ReactElement-JS Object ==> HTMLElement(render)
+// const heading = React.createElement(
+//     "h1", // tag
+//     {
+//         id: 'heading',
+//         xyz: 'abc'
+//     }, // props
+//     "Hello World from React!" // children
+// );
 
-console.log(heading); // object
+// JSX - HTML-like or XML-like syntax
+//  JSX ==> Babel transpiles to React.createElement ==> ReactElement-JS Object ==> HTMLElement(render)
+const jsXHeading = <h1 id="heading" className="abc" tabIndex={1}>Hello World from React - using JSX!</h1>;
 
 const root = createRoot(document.getElementById("root"));
 
-root.render(heading);
+// root.render(heading);
+root.render(jsXHeading);
 
 /******* */
 /** Chapter-2 */

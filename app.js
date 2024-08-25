@@ -36,7 +36,9 @@ const Title = () => (
 // * React Component Composition
 const HeadingComponent = () => (
     <div id='container'>
+        {Title()}
         <Title />
+        <Title></Title>
         {jsXHeading}
         <h1 id="heading" className="abc" tabIndex={1}>
             Hello World from React - using functional component

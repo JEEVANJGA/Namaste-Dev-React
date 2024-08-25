@@ -1,6 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
+import Header from './components/header/header';
+
 /******* */
 /** Chapter-3 */
 
@@ -36,6 +38,7 @@ const Title = () => (
 // * React Component Composition
 const HeadingComponent = () => (
     <div id='container'>
+        <Header />
         {Title()}
         <Title />
         <Title></Title>

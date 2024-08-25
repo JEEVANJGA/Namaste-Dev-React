@@ -34,13 +34,13 @@ const Header = () => {
     return (
         <div className="header">
             <div className="logo">
-                <img src="logo.png" alt="Logo" />
+                <img src="https://vectorwiki.com/images/HPXhG__react.svg" alt="Logo" />
             </div>
             <div className="search-bar">
                 <input type="text" placeholder="Search" />
             </div>
             <div className="user-icon">
-                <img src="user-icon.png" alt="User Icon" />
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-person-icon.png" alt="User Icon" />
             </div>
         </div>
     );
@@ -48,26 +48,3 @@ const Header = () => {
 
 export default Header;
 
-// .header {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     padding: 10px;
-//     background-color: #f2f2f2;
-// }
-
-// .logo img {
-//     width: 50px;
-//     height: 50px;
-// }
-
-// .search-bar input {
-//     padding: 5px;
-//     border: 1px solid #ccc;
-//     border-radius: 5px;
-// }
-
-// .user-icon img {
-//     width: 30px;
-//     height: 30px;
-// }

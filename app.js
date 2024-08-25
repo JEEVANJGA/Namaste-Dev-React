@@ -19,7 +19,7 @@ import { createRoot } from 'react-dom/client';
 //  JSX ==> Babel transpiles to React.createElement ==> ReactElement-JS Object ==> HTMLElement(render)
 const jsXHeading = (
     <h1 id="heading" className="abc" tabIndex={1}>
-        Hello World from React - using JSX!
+        React - element | using JSX!
     </h1>
 );
 
@@ -30,13 +30,14 @@ const jsXHeading = (
 // }
 
 const Title = () => (
-    <h2 id="title">I'm a title</h2>
+    <h1 id="title">I'm a title</h1>
 );
 
 // * React Component Composition
 const HeadingComponent = () => (
     <div id='container'>
         <Title />
+        {jsXHeading}
         <h1 id="heading" className="abc" tabIndex={1}>
             Hello World from React - using functional component
         </h1>

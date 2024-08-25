@@ -28,10 +28,17 @@ const jsXHeading = (
 // const HeadingComponent = () => {
 //     return <h1 id="heading" className="abc" tabIndex={1}>Hello World from React - using JSX!</h1>;
 // }
+
+const Title = () => (
+    <h2 id="title">I'm a title</h2>
+);
+
+// * React Component Composition
 const HeadingComponent = () => (
     <div id='container'>
+        <Title />
         <h1 id="heading" className="abc" tabIndex={1}>
-            Hello World from React - using JSX!
+            Hello World from React - using functional component
         </h1>
     </div>
 );

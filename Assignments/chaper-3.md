@@ -1,4 +1,4 @@
-# Chapter 02 - Laying the Foundation
+# Chapter 03 - Laying the Foundation
 
 ## Section 1: Theory | Questions and Answers
 

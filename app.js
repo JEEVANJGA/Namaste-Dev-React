@@ -12,6 +12,11 @@ import { createRoot } from 'react-dom/client';
       1. Search
       2. RestaurantContainer
          1. RestaurantCard
+            1. Image
+            2. Name
+            3. Star Rating
+            4. Delivery Time
+            5. Cousine
    3. Footer
       1. CopyRight
       2. Links
@@ -37,10 +42,37 @@ const Header = () => {
     );
 };
 
+const RestaurantCard = () => {
+    return (
+        <div className='res-card' style={{ backgroundColor: "#f0f0f0" }}>
+            <h3>Meghna Foods</h3>
+            <img
+                src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/zuthvcwjjvdjmo6n1pbl'
+                alt='restaurant'
+                className='res-logo'
+            />
+            <h4> Biriyani, North Indian , Asian </h4>
+            <h4> 4.5 Stars </h4>
+        </div>
+    )
+};
+
+const Body = () => {
+    return (
+        <div className='Body'>
+            <div className='search'> Search</div>
+            <div className='res-container'>
+                <RestaurantCard />
+            </div>
+        </div>
+    )
+};
+
 const AppLayout = () => {
     return (
         <div className='app'>
             <Header />
+            <Body />
         </div>
     );
 };

@@ -44,7 +44,7 @@ const Header = () => {
 
 const RestaurantCard = () => {
     return (
-        <div className='res-card' style={{ backgroundColor: "#f0f0f0" }}>
+        <div className='res-card' >
             <h3>Meghna Foods</h3>
             <img
                 src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/zuthvcwjjvdjmo6n1pbl'

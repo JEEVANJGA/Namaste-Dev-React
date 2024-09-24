@@ -38,7 +38,12 @@
     width: 200px;
     height: 100%;
     padding: 10px;
-    border: 1px solid black
+    background-color: #f0f0f0
+}
+
+.res-card:hover {
+    box-shadow: 2px -4px 13px 0px #919cc6;
+    cursor: pointer;
 }
 
 .res-logo {

@@ -52,7 +52,8 @@ const RestaurantCard = () => {
                 className='res-logo'
             />
             <h4> Biriyani, North Indian , Asian </h4>
-            <h4> 4.5 Stars </h4>
+            <span> 4.5 Stars </span>
+            <span> 38 minutes </span>
         </div>
     )
 };

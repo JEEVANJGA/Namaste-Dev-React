@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import RestaurantCard from './RestaurantCard';
 
@@ -7,6 +7,12 @@ import { restarantList } from '../utils/mockData';
 const Body = () => {
 
     const [listOfRestaurants, setListOfRestaurants] = useState(restarantList);
+
+    useEffect(() => {
+        console.log('useEffect called');
+    }, []);
+
+    console.log('Body rendered');
 
     return (
         <div className='Body'>

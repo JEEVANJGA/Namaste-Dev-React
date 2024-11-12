@@ -80,3 +80,8 @@
     background-color: #f0f0f0;
     animation: shimmer 2s infinite;
 }
+
+.login{
+    padding: 0 15px;
+    cursor: pointer;
+}

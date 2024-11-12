@@ -27,37 +27,40 @@ const Body = () => {
         fetchData();
     }, []);
 
-    if(!listOfRestaurants || listOfRestaurants?.length === 0) {
-        // Shimmer UI can be added here
-        return <Shimmer />;
-    }
+    // // conditional rendering
+    // if(!listOfRestaurants || listOfRestaurants?.length === 0) {
+    //     // Shimmer UI can be added here
+    //     return <Shimmer />;
+    // }
 
-    return (
-        <div className='Body'>
-            <div className='filter'>
-                <button
-                    className='filter-btn'
-                    onClick={() => {
-                        const filteredList = copyOfRestaurants.filter((restaurant) => restaurant.info.avgRating > 4.3);
-                        setListOfRestaurants(filteredList);
-                    }}
-                >Top Rated Restaurants </button>
-                <button
-                    className='filter-btn'
-                    onClick={() => {
-                        setListOfRestaurants(copyOfRestaurants);
-                    }}
-                >Reset</button>
+    return (!listOfRestaurants || listOfRestaurants?.length === 0) ?
+        <Shimmer />
+        : (
+            <div className='Body'>
+                <div className='filter'>
+                    <button
+                        className='filter-btn'
+                        onClick={() => {
+                            const filteredList = copyOfRestaurants.filter((restaurant) => restaurant.info.avgRating > 4.3);
+                            setListOfRestaurants(filteredList);
+                        }}
+                    >Top Rated Restaurants </button>
+                    <button
+                        className='filter-btn'
+                        onClick={() => {
+                            setListOfRestaurants(copyOfRestaurants);
+                        }}
+                    >Reset</button>
+                </div>
+                <div className='res-container'>
+                    {
+                        listOfRestaurants?.map((restaurant) => {
+                            return <RestaurantCard key={restaurant.info.id} restaurantDetails={restaurant} />
+                        })
+                    }
+                </div>
             </div>
-            <div className='res-container'>
-                {
-                    listOfRestaurants?.map((restaurant) => {
-                        return <RestaurantCard key={restaurant.info.id} restaurantDetails={restaurant} />
-                    })
-                }
-            </div>
-        </div>
-    )
+        )
 };
 
 export default Body;

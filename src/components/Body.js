@@ -17,7 +17,7 @@ const Body = () => {
     const fetchData = async () => {
         try {
             const response = await fetch(
-                "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0615195&lng=77.6163803&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+                "https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0615195&lng=77.6163803&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
             );
             const data = await response.json();
             const restaurant_list = await data?.data?.cards?.[4]?.card?.card

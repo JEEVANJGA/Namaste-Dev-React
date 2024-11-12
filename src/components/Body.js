@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import RestaurantCard from './RestaurantCard';
+import Shimmer from './Shimmer';
 
 // import { restarantList } from '../utils/mockData';
 
@@ -25,6 +26,11 @@ const Body = () => {
     useEffect(() => {
         fetchData();
     }, []);
+
+    if(!listOfRestaurants || listOfRestaurants?.length === 0) {
+        // Shimmer UI can be added here
+        return <Shimmer />;
+    }
 
     return (
         <div className='Body'>

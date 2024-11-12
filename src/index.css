@@ -81,7 +81,18 @@
     animation: shimmer 2s infinite;
 }
 
-.login{
+.login {
     padding: 0 15px;
+    cursor: pointer;
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.search-btn {
     cursor: pointer;
 }

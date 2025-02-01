@@ -1,10 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LOGO_URL } from '../utils/constants';
 
 const Header = () => {
 
     const [btnName, setBtnName] = useState('Login');
 
+    useEffect(() => {
+        console.log('Header component mounted');
+        return () => {
+            console.log('Header component unmounted');
+        };
+    }, []);
+    
     return (
         <div className='header'>
             <div className='logo-container'>

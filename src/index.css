@@ -24,6 +24,20 @@
 .navItems>ul>li {
     padding: 0 10px;
     margin: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.3s ease;
+}
+
+.navItems>ul>li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navItems>ul>li:hover {
+    background-color: #f0f0f0;
+    /* Change to your desired highlight color */
+    border-radius: 5px;
 }
 
 .search {

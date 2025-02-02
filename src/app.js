@@ -2,10 +2,13 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 /******* */
-/** Chapter-5 */
+/** Chapter-7 */
+
+import { createBrowserRouter, RouterProvider } from 'react-router';
 
 import Header from './components/Header';
 import Body from './components/Body';
+import About from './components/About';
 
 const AppLayout = () => {
     return (
@@ -16,8 +19,41 @@ const AppLayout = () => {
     );
 };
 
+const appRouter = createBrowserRouter([
+    {
+        path: '/',
+        element: <AppLayout />
+    },
+    {
+        path: '/about',
+        element: <About />
+    }
+])
+
 const root = createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+// root.render(<AppLayout />);
+root.render(<RouterProvider router={appRouter} />);
+
+
+/******* */
+
+/******* */
+/** Chapter-5 */
+
+// import Header from './components/Header';
+// import Body from './components/Body';
+
+// const AppLayout = () => {
+//     return (
+//         <div className='app'>
+//             <Header />
+//             <Body />
+//         </div>
+//     );
+// };
+
+// const root = createRoot(document.getElementById("root"));
+// root.render(<AppLayout />);
 /******* */
 /** Chapter-4 */
 /**

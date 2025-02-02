@@ -9,6 +9,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import Header from './components/Header';
 import Body from './components/Body';
 import About from './components/About';
+import Contacts from './components/Contacts';
 
 const AppLayout = () => {
     return (
@@ -27,7 +28,11 @@ const appRouter = createBrowserRouter([
     {
         path: '/about',
         element: <About />
-    }
+    },
+    {
+        path: '/contacts',
+        element: <Contacts />
+    },
 ])
 
 const root = createRoot(document.getElementById("root"));

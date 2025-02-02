@@ -343,3 +343,11 @@ export default function Settings() {
 - Nested routes are handled with the `<Outlet>` component.
 - Use Link or NavLink for client-side navigation.
 - New data APIs like loader and action are available for advanced routing.
+
+### Notes - 2
+
+- 2 types of routing in web apps
+    1. Client Side Routing
+        - Client Side Routing is handled by the browser using JavaScript. It allows for faster navigation and a smoother user experience as it doesn't require a full page reload. React Router is a popular library for implementing client-side routing in React applications.
+    2. Server Side Routing
+        - Server Side Routing is handled by the server. Each navigation request is sent to the server, which responds with a new HTML page. This approach is more traditional and can be beneficial for SEO and initial load performance.

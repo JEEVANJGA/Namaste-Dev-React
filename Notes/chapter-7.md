@@ -12,18 +12,18 @@
 ### Basic Usage
 
 ```jsx
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
 function ExampleComponent() {
-    useEffect(() => {
-        // Code to run on component mount
+  useEffect(() => {
+    // Code to run on component mount
 
-        return () => {
-            // Code to run on component unmount
-        };
-    }, []);
+    return () => {
+      // Code to run on component unmount
+    };
+  }, []);
 
-    return <div>Example</div>;
+  return <div>Example</div>;
 }
 ```
 
@@ -33,7 +33,7 @@ The second argument to `useEffect` is an array of dependencies. The effect will 
 
 ```jsx
 useEffect(() => {
-    // Code to run when `prop` changes
+  // Code to run when `prop` changes
 }, [prop]);
 ```
 
@@ -43,36 +43,36 @@ To avoid memory leaks, you can return a cleanup function from the effect.
 
 ```jsx
 useEffect(() => {
-    const subscription = someAPI.subscribe();
+  const subscription = someAPI.subscribe();
 
-    return () => {
-        subscription.unsubscribe();
-    };
+  return () => {
+    subscription.unsubscribe();
+  };
 }, []);
 ```
 
 ### Example with Dependencies
 
 ```jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 function ExampleComponent({ prop }) {
-    const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
-    useEffect(() => {
-        console.log('Prop or count changed');
+  useEffect(() => {
+    console.log("Prop or count changed");
 
-        return () => {
-            console.log('Cleanup on prop or count change');
-        };
-    }, [prop, count]);
+    return () => {
+      console.log("Cleanup on prop or count change");
+    };
+  }, [prop, count]);
 
-    return (
-        <div>
-            <p>Count: {count}</p>
-            <button onClick={() => setCount(count + 1)}>Increment</button>
-        </div>
-    );
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
 }
 ```
 
@@ -85,51 +85,49 @@ It is used to create local state variables inside functional components. Never i
 ### Basic Usage
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Counter() {
-    const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
-    return (
-        <div>
-            <p>You clicked {count} times</p>
-            <button onClick={() => setCount(count + 1)}>
-                Click me
-            </button>
-        </div>
-    );
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  );
 }
 ```
 
 ### Using Multiple State Variables
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Form() {
-    const [name, setName] = useState('');
-    const [age, setAge] = useState('');
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
 
-    return (
-        <form>
-            <label>
-                Name:
-                <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-            </label>
-            <label>
-                Age:
-                <input
-                    type="number"
-                    value={age}
-                    onChange={(e) => setAge(e.target.value)}
-                />
-            </label>
-        </form>
-    );
+  return (
+    <form>
+      <label>
+        Name:
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </label>
+      <label>
+        Age:
+        <input
+          type="number"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+        />
+      </label>
+    </form>
+  );
 }
 ```
 
@@ -138,19 +136,19 @@ function Form() {
 When updating state based on the previous state, you can pass a function to the state setter function.
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Counter() {
-    const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
-    return (
-        <div>
-            <p>You clicked {count} times</p>
-            <button onClick={() => setCount(prevCount => prevCount + 1)}>
-                Click me
-            </button>
-        </div>
-    );
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount((prevCount) => prevCount + 1)}>
+        Click me
+      </button>
+    </div>
+  );
 }
 ```
 
@@ -159,19 +157,108 @@ function Counter() {
 You can also initialize the state lazily by passing a function to `useState`.
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function ExpensiveComponent() {
-    const [value, setValue] = useState(() => {
-        // Expensive computation
-        return computeExpensiveValue();
-    });
+  const [value, setValue] = useState(() => {
+    // Expensive computation
+    return computeExpensiveValue();
+  });
 
-    return <div>{value}</div>;
+  return <div>{value}</div>;
 }
 
 function computeExpensiveValue() {
-    // Some expensive computation
-    return 42;
+  // Some expensive computation
+  return 42;
 }
 ```
+
+## React Router
+
+- Previously known as React Router DOM.
+- Starting from version 7, "React Router DOM" has been integrated into "React Router".
+- `npm i react-router`.
+
+### Key Features in React Router v7
+
+- Simplified API with nested routes and layouts.
+- Data APIs for `loader`, `action`, and `errorElement`.
+- Enhanced support for lazy loading components.
+- Improved performance with dynamic route matching.
+- Built-in `<Routes>` replaces `<Switch>` from previous versions.
+
+### Basic Example
+
+```jsx
+import { BrowserRouter, Routes, Route, Link } from "react-router";
+
+function Home() {
+  return <h2>Home Page</h2>;
+}
+
+function About() {
+  return <h2>About Page</h2>;
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <nav>
+        <Link to="/">Home</Link> | <Link to="/about">About</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+```
+
+### Nested Routes Example
+
+```jsx
+import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router";
+
+function Dashboard() {
+  return (
+    <div>
+      <h2>Dashboard</h2>
+      <nav>
+        <Link to="profile">Profile</Link> | <Link to="settings">Settings</Link>
+      </nav>
+      <Outlet />
+    </div>
+  );
+}
+
+function Profile() {
+  return <h3>Profile Section</h3>;
+}
+
+function Settings() {
+  return <h3>Settings Section</h3>;
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Dashboard />}>
+          <Route path="profile" element={<Profile />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+```
+
+### Notes
+
+- `<Routes>` replaces `<Switch>` for route matching.
+- The element prop is used instead of component to render components.
+- Nested routes are handled with the `<Outlet>` component.
+- Use Link or NavLink for client-side navigation.
+- New data APIs like loader and action are available for advanced routing.

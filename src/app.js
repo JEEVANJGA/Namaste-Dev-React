@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 /******* */
 /** Chapter-7 */
 
-import { createBrowserRouter, RouterProvider } from 'react-router';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router';
 
 import Header from './components/Header';
 import Body from './components/Body';
@@ -16,7 +16,7 @@ const AppLayout = () => {
     return (
         <div className='app'>
             <Header />
-            <Body />
+            <Outlet />
         </div>
     );
 };
@@ -25,16 +25,23 @@ const appRouter = createBrowserRouter([
     {
         path: '/',
         element: <AppLayout />,
+        children: [
+            {
+                path: '/',
+                element: <Body />
+            },
+            {
+                path: '/about',
+                element: <About />
+            },
+            {
+                path: '/contacts',
+                element: <Contacts />
+            },
+        ],
         errorElement: <Error />
     },
-    {
-        path: '/about',
-        element: <About />
-    },
-    {
-        path: '/contacts',
-        element: <Contacts />
-    },
+
 ])
 
 const root = createRoot(document.getElementById("root"));

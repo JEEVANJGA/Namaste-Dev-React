@@ -10,6 +10,7 @@ import Header from './components/Header';
 import Body from './components/Body';
 import About from './components/About';
 import Contacts from './components/Contacts';
+import Error from './components/Error';
 
 const AppLayout = () => {
     return (
@@ -23,7 +24,8 @@ const AppLayout = () => {
 const appRouter = createBrowserRouter([
     {
         path: '/',
-        element: <AppLayout />
+        element: <AppLayout />,
+        errorElement: <Error />
     },
     {
         path: '/about',

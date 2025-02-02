@@ -255,6 +255,87 @@ export default function App() {
 }
 ```
 
+### Using createBrowserRouter
+
+In React Router v7, you can use `createBrowserRouter` to define your routes and `RouterProvider` to provide the router to your application.
+
+```jsx
+import { createBrowserRouter, RouterProvider } from "react-router";
+import Dashboard from "./Dashboard";
+import Profile from "./Profile";
+import Settings from "./Settings";
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Dashboard />,
+        children: [
+            {
+                path: "/",
+                element: <>landing page</>,
+
+            },
+            {
+                path: "/profile",
+                element: <Profile />,
+            },
+            {
+                path: "/settings",
+                element: <Settings />,
+            },
+        ],
+        
+        errorElement: <> Error Fallback page</>
+    },
+]);
+
+export default function App() {
+    return <RouterProvider router={router} />;
+}
+```
+
+In this example, `Dashboard` is the parent component with nested routes for `Profile` and `Settings`. The `RouterProvider` component is used to pass the router configuration to your application.
+
+#### Example Components
+
+Here are the simple React components for `Dashboard`, `Profile`, and `Settings`:
+
+```jsx
+// Dashboard.jsx
+import React from "react";
+import { Outlet, Link } from "react-router";
+
+export default function Dashboard() {
+    return (
+        <div>
+            <h2>Dashboard</h2>
+            <nav>
+                <Link to="profile">Profile</Link> | <Link to="settings">Settings</Link>
+            </nav>
+            <Outlet />
+        </div>
+    );
+}
+```
+
+```jsx
+// Profile.jsx
+import React from "react";
+
+export default function Profile() {
+    return <h3>Profile Section</h3>;
+}
+```
+
+```jsx
+// Settings.jsx
+import React from "react";
+
+export default function Settings() {
+    return <h3>Settings Section</h3>;
+}
+```
+
 ### Notes
 
 - `<Routes>` replaces `<Switch>` for route matching.

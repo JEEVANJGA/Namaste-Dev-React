@@ -2,22 +2,77 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 /******* */
-/** Chapter-5 */
+/** Chapter-7 */
+
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router';
 
 import Header from './components/Header';
 import Body from './components/Body';
+import About from './components/About';
+import Contacts from './components/Contacts';
+import RestaurantMenu from './components/RestaurantMenu';
+import Error from './components/Error';
 
 const AppLayout = () => {
     return (
         <div className='app'>
             <Header />
-            <Body />
+            <Outlet />
         </div>
     );
 };
 
+const appRouter = createBrowserRouter([
+    {
+        path: '/',
+        element: <AppLayout />,
+        children: [
+            {
+                path: '/',
+                element: <Body />
+            },
+            {
+                path: '/about',
+                element: <About />
+            },
+            {
+                path: '/contacts',
+                element: <Contacts />
+            },
+            {
+                path: 'restaurant/:resId',
+                element: <RestaurantMenu />
+            }
+        ],
+        errorElement: <Error />
+    },
+
+])
+
 const root = createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+// root.render(<AppLayout />);
+root.render(<RouterProvider router={appRouter} />);
+
+
+/******* */
+
+/******* */
+/** Chapter-5 */
+
+// import Header from './components/Header';
+// import Body from './components/Body';
+
+// const AppLayout = () => {
+//     return (
+//         <div className='app'>
+//             <Header />
+//             <Body />
+//         </div>
+//     );
+// };
+
+// const root = createRoot(document.getElementById("root"));
+// root.render(<AppLayout />);
 /******* */
 /** Chapter-4 */
 /**

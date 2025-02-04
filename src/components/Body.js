@@ -99,6 +99,7 @@ const Body = () => {
                     return (
                         <Link to={`/restaurant/${restaurant.info.id}`}
                             key={restaurant.info.id}
+                            className='res-card-link'
                         >
                             <RestaurantCard
                                 restaurantDetails={restaurant}

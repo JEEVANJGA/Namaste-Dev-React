@@ -255,6 +255,29 @@ export default function App() {
 }
 ```
 
+### Dynamic Routes
+
+```jsx
+import { BrowserRouter, Routes, Route, useParams } from "react-router";
+
+function User() {
+  let { id } = useParams();
+  return <h2>User ID: {id}</h2>;
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="user/:id" element={<User />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+```
+
+In this example, the `User` component uses the `useParams` hook to access the dynamic `id` parameter from the URL. When you navigate to a URL like `/user/123`, the `User` component will display `User ID: 123`.
+
 ### Using createBrowserRouter
 
 In React Router v7, you can use `createBrowserRouter` to define your routes and `RouterProvider` to provide the router to your application.
@@ -266,31 +289,30 @@ import Profile from "./Profile";
 import Settings from "./Settings";
 
 const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <Dashboard />,
+    children: [
+      {
         path: "/",
-        element: <Dashboard />,
-        children: [
-            {
-                path: "/",
-                element: <>landing page</>,
+        element: <>landing page</>,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/settings",
+        element: <Settings />,
+      },
+    ],
 
-            },
-            {
-                path: "/profile",
-                element: <Profile />,
-            },
-            {
-                path: "/settings",
-                element: <Settings />,
-            },
-        ],
-        
-        errorElement: <> Error Fallback page</>
-    },
+    errorElement: <> Error Fallback page</>,
+  },
 ]);
 
 export default function App() {
-    return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />;
 }
 ```
 
@@ -306,15 +328,15 @@ import React from "react";
 import { Outlet, Link } from "react-router";
 
 export default function Dashboard() {
-    return (
-        <div>
-            <h2>Dashboard</h2>
-            <nav>
-                <Link to="profile">Profile</Link> | <Link to="settings">Settings</Link>
-            </nav>
-            <Outlet />
-        </div>
-    );
+  return (
+    <div>
+      <h2>Dashboard</h2>
+      <nav>
+        <Link to="profile">Profile</Link> | <Link to="settings">Settings</Link>
+      </nav>
+      <Outlet />
+    </div>
+  );
 }
 ```
 
@@ -323,7 +345,7 @@ export default function Dashboard() {
 import React from "react";
 
 export default function Profile() {
-    return <h3>Profile Section</h3>;
+  return <h3>Profile Section</h3>;
 }
 ```
 
@@ -332,7 +354,7 @@ export default function Profile() {
 import React from "react";
 
 export default function Settings() {
-    return <h3>Settings Section</h3>;
+  return <h3>Settings Section</h3>;
 }
 ```
 
@@ -347,7 +369,7 @@ export default function Settings() {
 ### Notes - 2
 
 - 2 types of routing in web apps
-    1. Client Side Routing
-        - Client Side Routing is handled by the browser using JavaScript. It allows for faster navigation and a smoother user experience as it doesn't require a full page reload. React Router is a popular library for implementing client-side routing in React applications.
-    2. Server Side Routing
-        - Server Side Routing is handled by the server. Each navigation request is sent to the server, which responds with a new HTML page. This approach is more traditional and can be beneficial for SEO and initial load performance.
+  1. Client Side Routing
+     - Client Side Routing is handled by the browser using JavaScript. It allows for faster navigation and a smoother user experience as it doesn't require a full page reload. React Router is a popular library for implementing client-side routing in React applications.
+  2. Server Side Routing
+     - Server Side Routing is handled by the server. Each navigation request is sent to the server, which responds with a new HTML page. This approach is more traditional and can be beneficial for SEO and initial load performance.
